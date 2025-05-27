@@ -42,7 +42,7 @@ function compareDates(extractedDate) {
     // the extracted ccontent according to the class
     let date = new Date().toLocaleDateString();
 
-     let yip=['27/05/2025']
+     let todaysdate=['27/05/2025']
 
     if (extractedDate[0] === date) {
         sendNotification(true)
