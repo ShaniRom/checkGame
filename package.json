@@ -1,0 +1,21 @@
+{
+   "engines": {
+      "npm": ">=10.9.2",
+      "node": ">=22.14.0"
+   },
+   "name": "shaniproject",
+   "version": "1.0.0",
+   "main": "checkgames.js",
+   "dependencies": {
+      "axios": "^1.8.1",
+      "cheerio": "^1.0.0",
+      "node-cron": "^3.0.3",
+      "node-notifier": "^10.0.1"
+   },
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "author": "Shani Rom",
+   "license": "UNLICENSED",
+   "description": ""
+}
