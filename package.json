@@ -13,7 +13,8 @@
       "node-notifier": "^10.0.1"
    },
    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "check": "node checkgames.js"
    },
    "author": "Shani Rom",
    "license": "UNLICENSED",

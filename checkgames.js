@@ -20,35 +20,36 @@ async function checkWebsite() {
     const response = await axios.get(siteurl);
     const htmlContent = response.data;
     const $ = cheerio.load(htmlContent);
-    const paragraphText = $("div.elementor-widget.elementor-widget-text-editor div.elementor-widget-container p").eq(2).text().trim();
+    const paragraphText = $("section.elementor-section.elementor-inner-section.elementor-element.elementor-element-c9b3e16.elementor-section-boxed.elementor-section-height-default.elementor-section-height-default").text().trim();
     // .eq(n) extracts specific element from collection
     // text() gets the inner text of the element
     // trim() helps remove unwanted spaces
 
-
-
     let extractedDate = paragraphText.match(/\d{1,2}([\/.-])\d{1,2}\1\d{2}/g);
     // extracts a date from a block of text
-    if(!extractedDate === undefined){
-        compareDates(extractedDate)
-    }else{
-        sendNotification(false)
-    }
+if (extractedDate !== null && extractedDate !== undefined) {
+    compareDates(extractedDate);
+} else {
+    sendNotification(false);
+}
 
 
 }
 
 function compareDates(extractedDate) {
     // the extracted ccontent according to the class
-    let date = new Date().toLocaleDateString();
+const todaysDate = new Date().toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: '2-digit',
+    year: '2-digit' // <- 2-digit year
+});
 
-     let todaysdate=['27/05/2025']
 
-    if (extractedDate[0] === date) {
-        sendNotification(true)
-        console.log(date)
+
+    if (extractedDate[0] === todaysDate) {
+        sendNotification(true);
     } else {
-        sendNotification(false)
+        sendNotification(false);
     }
 }
 
